@@ -19,7 +19,7 @@
           if(count($data) > 0){
                if(password_verify($_POST["password"], $data[0]->password)){
                    $this->context->sessionStart($_POST["email"]);
-                   header("location:/admin");
+                   header("location:/panel");
                }
                else $msj =  "Verifique la contraseña";
           }

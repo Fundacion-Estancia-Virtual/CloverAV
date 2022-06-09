@@ -32,7 +32,7 @@
             <div  class="mb-3">
 
             <button type="submit" class="w-100 btn btn-primary btn-sm mb-1">Continuar</button>
-            <a href="/registrarse"type="button" class="w-100 btn btn-secondary  btn-sm  ">Crear nueva cuenta</a>
+            <a href="/signup" type="button" class="w-100 btn btn-secondary  btn-sm  ">Crear nueva cuenta</a>
 
             <small id="emailHelp" class="text-center form-text text-muted">Lorem ipsum dolor sit amet, consectetu gia</small>
           </form>

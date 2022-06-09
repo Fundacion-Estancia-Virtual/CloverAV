@@ -20,8 +20,7 @@ class Model_User{
         return $data;
     }
 
-    public function create($name, $password, $email)  {
-        var_dump($name, $password, $email);
+    public function create($name, $password, $email)  { 
         $qry = "INSERT INTO `users`
             (`id`, `name`, `password`, `email`, `rol`, `phone`, `fecha_registro`, `status`)
             VALUES (DEFAULT,?,?,?,0,0, NOW(),0)";

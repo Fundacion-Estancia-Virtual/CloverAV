@@ -31,7 +31,7 @@
 
       public function cerrar_session(){
           $this->context->sessionFinish();
-          header("location:/ingresar");
+          header("location:/login");
       }
  }
 

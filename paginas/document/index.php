@@ -1,9 +1,9 @@
 <?php
- class About  extends Context {
+ class Document  extends Context {
      private $context;
      function __construct($context){
          $this->context = $context;
-         $this->context->title = "About";
+         $this->context->title = "Document";
      }
 
      public function index(){
@@ -11,7 +11,7 @@
             ?$this->context->create("_componentes/navLog")
             :$this->context->create("_componentes/nav");
 
-         $html  .= $this->context->create("about");
+         $html  .= $this->context->create("document");
          $html  .= $this->context->create("_componentes/footer");
          return $this->context->ret($html);
      }

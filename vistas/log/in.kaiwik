@@ -1,4 +1,5 @@
 <script>
+console.log("Hola");
     $form = document.getElementById('loginForm');
     $msj = document.getElementById('msj');
     $form.addEventListener("submit",async (e)=>{

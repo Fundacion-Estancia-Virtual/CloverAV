@@ -1,9 +1,9 @@
 <?php
- class About  extends Context {
+ class Ls  extends Context {
      private $context;
      function __construct($context){
          $this->context = $context;
-         $this->context->title = "About";
+         $this->context->title = "file";
      }
 
      public function index(){
@@ -11,9 +11,11 @@
             ?$this->context->create("_componentes/navLog")
             :$this->context->create("_componentes/nav");
 
-         $html  .= $this->context->create("about");
+         // hace uso de la libreria core/lib/file
+         // para listar los archivos en el directorio    
+         $html  .= $this->lib("files")->ls("@recursos/icons");
          $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         return $this->ret($html);
      }
 
 }

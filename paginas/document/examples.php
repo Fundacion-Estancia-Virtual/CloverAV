@@ -1,5 +1,5 @@
 <?php
- class About  extends Context {
+ class Examples  extends Context {
      private $context;
      function __construct($context){
          $this->context = $context;
@@ -11,10 +11,12 @@
             ?$this->context->create("_componentes/navLog")
             :$this->context->create("_componentes/nav");
 
-         $html  .= $this->context->create("about");
+         $html  .= $this->context->create("/document/examples");
          $html  .= $this->context->create("_componentes/footer");
          return $this->context->ret($html);
      }
+
+     
 
 }
 

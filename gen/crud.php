@@ -58,6 +58,11 @@ class Model_'.ucfirst($ENTIDAD).'{
         $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
+    public function getsByUser($id){
+        $qry = "SELECT * FROM `'.$ENTIDAD.'`  WHERE id_user = ? ";
+        $data  = $this->db->consult($qry, [$id]);
+        return $data;
+    }
     public function gets(){
         $qry = "SELECT * FROM `'.$ENTIDAD.'` ";
         $data  = $this->db->consult($qry, []);
@@ -198,7 +203,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>Añadir '.ucfirst($ENTIDAD).'</h4>
-        <a href="/panel">Panel<a/> / <a href="/panel/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'<a/> / new
+        <a href="/panel">Panel</a> / <a href="/panel/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'</a> / new
       </div>
   <section />
 
@@ -253,7 +258,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>Listando '.ucfirst($ENTIDAD).'</h4>
-        <a href="/panel">Panel<a/> / <a href="/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'<a/>
+        <a href="/panel">Panel</a> / <a href="/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'</a>
       </div>
   <section />
 
@@ -385,7 +390,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>Actualizar  '.ucfirst($ENTIDAD).'</h4>
-        <a href="/panel">Panel<a/> / <a href="/panel/entidad"> '.ucfirst($ENTIDAD).'<a/> / update
+        <a href="/panel">Panel</a> / <a href="/panel/entidad"> '.ucfirst($ENTIDAD).'</a> / update
       </div>
   <section />
 
@@ -442,7 +447,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>'.ucfirst($ENTIDAD).'</h4>
-        <a href="/">Home<a/> / '.ucfirst($ENTIDAD).'
+        <a href="/">Home</a> / '.ucfirst($ENTIDAD).'
       </div>
   <section />
 
@@ -451,7 +456,7 @@ fwrite($archivo,'<script>
 
           <div class="row">
               <?php foreach ($data as $key => $value): ?>
-                <div class="col-4 ">
+                <div class="col-md-4 ">
                   <div class="card p-3 m-2">
                       <p class="text-muted"><?= $value->id?></p>
                         '.valueIndexList($ATRIBUTOS).'
@@ -589,7 +594,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4> Detalles </h4>
-        <a href="/">Home<a/> / <a href="/'.$ENTIDAD.'"> '.ucfirst($ENTIDAD).'<a/> / <?= $data->id?>
+        <a href="/">Home</a> / <a href="/'.$ENTIDAD.'"> '.ucfirst($ENTIDAD).'</a> / <?= $data->id?>
       </div>
   <section />
 

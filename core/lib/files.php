@@ -9,7 +9,7 @@ class Files extends Context {
     public function ls($dir)  {
         $files = scandir($dir);
         unset($files[0]);  unset($files[1]);
-        $cmp = $this->create("showfiles",["files" => $files, "rut" => HOST."/$dir"]);
+        $cmp = $this->create("_cmp/showfiles",["files" => $files, "rut" => HOST."/$dir"]);
         return $cmp;
     }
 }

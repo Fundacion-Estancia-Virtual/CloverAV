@@ -21,3 +21,8 @@ a{
 .border-block {
 border-top: 1px solid #f2f2f2;
 }
+
+.tablaBox{
+  width: 100% !important;
+  overflow-x: scroll !important;
+}

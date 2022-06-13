@@ -39,60 +39,50 @@
      private function getGeneralCard()  {
          return [
              [
-                 "img" => "https://hpanel.hostinger.com/img/order_set_main_domain.10879899.svg",
+                 "img" => "@recursos/icons/user.svg",
                  "title" => "Mis datos",
-                 "url" => "/adminMy"
+                 "url" => "/panel/my"
             ],
              [
-                 "img" => "https://hpanel.hostinger.com/img/order_order_usage.d9ce7403.svg",
+                 "img" => "@recursos/icons/cuenta.svg",
                  "title" => "Cuenta",
-                 "url" => "/"
+                 "url" => "#"
             ],
              [
-                 "img" => "https://hpanel.hostinger.com/img/website_seo.1260fda2.svg",
-                 "title" => "Pasarela de pagos",
-                 "url" => "/"
+                 "img" => "@recursos/icons/config.svg",
+                 "title" => "Configuración",
+                 "url" => "#"
             ],
         ];
      }
      private function getModelCard()  {
          return [
              [
-                 "img" => "https://hpanel.hostinger.com/img/website_digital_marketing.7c5b297e.svg",
+                 "img" => "@recursos/icons/items.svg",
                  "title" => "Productos",
-                 "url" => "/adminProductos"
+                 "url" => "/panel/item"
             ],
              [
-                 "img" => "https://hpanel.hostinger.com/img/website_digital_marketing.7c5b297e.svg",
-                 "title" => "Entidad",
-                 "url" => "/panel/entidad"
-            ],
-             [
-                 "img" => "https://hpanel.hostinger.com/img/website_business_service.969ff456.svg",
+                 "img" => "@recursos/icons/categoria.svg",
                  "title" => "Categorias",
-                 "url" => "/adminCategorias"
+                 "url" => "/panel/categoria"
             ],
              [
-                 "img" => "https://hpanel.hostinger.com/img/migrations_requests.15111741.svg",
+                 "img" => "@recursos/icons/note.svg",
                  "title" => "Pedidos",
                  "url" => "/adminPedidos"
-            ],
-             [
-                 "img" => "https://hpanel.hostinger.com/img/website_auto_installer.eaa6f3a6.svg",
-                 "title" => "Completadas",
-                 "url" => "/"
-            ],
+            ]
         ];
      }
      private function getAdminCard()  {
          return [
              [
-                 "img" => "https://hpanel.hostinger.com/img/files_ftp_accounts.72c05a65.svg",
+                "img" => "@recursos/icons/team.svg",
                  "title" => "Usuarios",
-                 "url" => "/adminUsuarios"
+                 "url" => "/panel/user"
             ],
              [
-                 "img" => "https://hpanel.hostinger.com/img/wordpress_plugins.6d247aba.svg",
+                 "img" => "@recursos/icons/proba.svg",
                  "title" => "Estadisticas",
                  "url" => "/"
             ],

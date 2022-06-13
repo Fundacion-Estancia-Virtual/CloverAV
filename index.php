@@ -30,10 +30,11 @@ else header("location:/error404");
 function render($file,$arg){
   $context = new Context($GLOBALS["db"]);
   require_once($file.".php");
-  $pg= ucfirst(array_pop(explode('/',$file)));
+  $explode = explode('/',$file);
+  $pg= ucfirst(array_pop($explode));
   if($pg == "Index"){
     $t = explode('/',$file);
-    $pg= ucfirst($t[count($t)-2]); 
+    $pg= ucfirst($t[count($t)-2]);
   }
   $pg = new $pg($context);
 
@@ -58,9 +59,7 @@ function draw($vista){
                     "title"   => $title,
                     "RootCSS"   => $css,
                     "RootHTML" => $html,
-                    "RootJS" => $js,
-                    "CSSCMP" => '<style media="screen">'.$csscmp.'</style>',
-                    "JSCMP" => '<script type="text/javascript">'.$jscmp.' </script>'
+                    "RootJS" => $js
                 ]);
                 echo $view;
             break;

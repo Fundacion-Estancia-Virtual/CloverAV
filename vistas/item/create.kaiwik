@@ -1,0 +1,38 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Añadir Item</h4>
+        <a href="/panel">Panel<a/> / <a href="/panel/item">Item<a/> / new
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+             <form class="" action="/panel/item/create/add" method="post">
+                 <input name="name"  required  placeholder="name"  class="form-control mb-3">
+                 <input name="description"  required  placeholder="description"  class="form-control mb-3">
+                 <input name="img"  required  placeholder="img"  class="form-control mb-3">
+                 <input name="price"  required  placeholder="price"  class="form-control mb-3">
+                 <input name="id_user"  required  placeholder="id_user"  class="form-control mb-3">
+                 <input name="id_categ"  required  placeholder="id_categ"  class="form-control mb-3">
+                 
+                 <button type="submit" class="btn   my-3 btn-primary btn-sm">Agregar</button>
+             </form>
+   </div>
+   </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

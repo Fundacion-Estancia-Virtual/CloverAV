@@ -7,7 +7,7 @@
          if($context->sessionExist()) header("location:/admin");
      }
 
-     public function index(){
+     public function index($arg = null){
          $html  = $this->context->create("_componentes/nav");
          $html  .= $this->context->create("log/up");
          $html  .= $this->context->create("_componentes/footer");

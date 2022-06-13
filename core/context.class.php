@@ -71,14 +71,18 @@ class Context{
     }
 
     function ret( $html) {
+
+      $file_csscmp = fopen('vistas/bundle.css', 'w');
+      fwrite($file_csscmp, $this->csscmp); fclose($file_csscmp);
+      $file_jscmp = fopen('vistas/bundle.js', 'w');
+      fwrite($file_jscmp, $this->jscmp); fclose($file_jscmp);
+
        return [
            "type" => "html",
            "title" => $this->title,
            "css" => $this->css,
            "html" => $html,
-           "js" => $this->js,
-           "csscmp" => $this->csscmp,
-           "jscmp" => $this->jscmp,
+           "js" => $this->js
        ];
    }
 

@@ -1,0 +1,68 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Listando Item</h4>
+        <a href="/panel">Panel</a> / <a href="/item">Item</a>
+      </div>
+  <section />
+
+  <section >
+      <div class="container">
+          <div class="float-end py-2">
+              <a href="/panel/item/create" class="btn btn-primary btn-sm">Añadir item</a>
+          </div>
+          <div class="tablaBox">
+
+              <table class="table   table-hover text-center">
+                <thead class=" shadow-sm">
+                  <tr>
+                    <th scope="col">#id</th>
+                    <th scope="col">name</th>
+                 <th scope="col">description</th>
+                 <th scope="col">img</th>
+                 <th scope="col">price</th>
+                 <th scope="col">id_user</th>
+                 <th scope="col">id_categ</th>
+
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                      <?php foreach ($data as $key => $value): ?>
+                          <tr>
+                            <td><?= $value->id?></td>
+                            <td><?= $value->name?></td>
+                 <td><?= $value->description?></td>
+                 <td><?= $value->img?></td>
+                 <td><?= $value->price?></td>
+                 <td><?= $value->id_user?></td>
+                 <td><?= $value->id_categ?></td>
+
+                          <td>
+                            <a href="/item/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a>
+                            <a href="/panel/item/delete/<?= $value->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/panel/item/update/<?= $value->id?>" class="btn btn-primary btn-sm">Actualizar</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

@@ -26,3 +26,29 @@ border-top: 1px solid #f2f2f2;
   width: 100% !important;
   overflow-x: scroll !important;
 }
+
+/* froala */
+
+.fdb-block {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+    padding: 7.5rem 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.fdb-block .col-fill-right {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}

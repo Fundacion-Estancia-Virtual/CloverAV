@@ -14,10 +14,10 @@
   <section>
       <div class="container py-5 ">
              <form class="" action="/panel/categoria/create/add" method="post">
-                 <input name="id_user"  required  placeholder="id_user"  class="form-control mb-3">
+                 <!-- <input name="id_user"  required  placeholder="id_user"  class="form-control mb-3"> -->
                  <input name="name"  required  placeholder="name"  class="form-control mb-3">
                  <input name="description"  required  placeholder="description"  class="form-control mb-3">
-                 
+
                  <button type="submit" class="btn   my-3 btn-primary btn-sm">Agregar</button>
              </form>
    </div>

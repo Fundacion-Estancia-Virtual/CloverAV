@@ -15,10 +15,10 @@
       <div class="container py-5 ">
              <form class="" action="/panel/categoria/update/put" method="post">
                 <input name="id" value="<?= $data->id ?>" required   hidden />
-                  <input name="id_user" value="<?= $data->id_user ?>" required  placeholder="id_user"  class="form-control mb-3" />
+                  <!-- <input name="id_user" value="<?= $data->id_user ?>" required  placeholder="id_user"  class="form-control mb-3" /> -->
                  <input name="name" value="<?= $data->name ?>" required  placeholder="name"  class="form-control mb-3" />
                  <input name="description" value="<?= $data->description ?>" required  placeholder="description"  class="form-control mb-3" />
-                 
+
                  <button type="submit" class="btn   my-3 btn-primary btn-sm">Actualizar</button>
              </form>
       </div>
@@ -34,5 +34,3 @@
         color: green;
     }
 </style>
-
-

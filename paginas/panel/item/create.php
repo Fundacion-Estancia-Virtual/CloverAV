@@ -1,28 +1,31 @@
 <?php
  class Create  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Item";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "Item";
      }
      public function index(){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
-         $html .= $this->context->create("item/create");
+         $html .= $this->create("item/create",[
+           "categorias" => $this->model("categoria")->gets()
+         ]);
+         
 
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
      public function add($value=""){
-       $this->context->model("item")->create(
+       $this->model("item")->create(
            $_POST["name"],
            $_POST["description"],
            $_POST["img"],
            $_POST["price"],
-           $_POST["id_user"],
+           // $_POST["id_user"],
+           $this->sessionUser()->id,
            $_POST["id_categ"]
         );
        header("location:/panel/item");

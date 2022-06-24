@@ -1,28 +1,32 @@
 <?php
  class Update  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "Inicio";
      }
      public function index($args = []){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
-         $data = $this->context->model(item)->get($args[0]);
-         $html .= $this->context->create("item/update", $data[0]);
+         $data = $this->model(item)->get($args[0]);
+         $html .= $this->create("item/update",[
+           "data" => $data[0],
+           "categorias" => $this->model("categoria")->gets()
+           ]
+         );
 
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
      public function put($arg = []){
-       $this->context->model("item")->update(
+       $this->model("item")->update(
          $_POST["name"],
            $_POST["description"],
            $_POST["img"],
            $_POST["price"],
-           $_POST["id_user"],
+           // $_POST["id_user"],
+           $this->sessionUser()->id,
            $_POST["id_categ"],
           $_POST["id"]
         );
@@ -31,4 +35,3 @@
 }
 
 ?>
-

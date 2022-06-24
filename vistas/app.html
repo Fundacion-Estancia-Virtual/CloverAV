@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="/vistas/app.css">
-    <link rel="stylesheet" href="/vistas/bundle.css">
 
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
 
@@ -17,6 +16,7 @@
      <?php endforeach; ?>
 
     <title><?= $title ?></title>
+    <?= $bundleCSS ?>
   </head>
   <body>
       <?= $RootHTML ?>
@@ -28,6 +28,6 @@
 
 
       <script src="/vistas/app.js"></script>
-      <script src="/vistas/bundle.js"></script>
+      <?= $bundleJS ?> 
   </body>
 </html>

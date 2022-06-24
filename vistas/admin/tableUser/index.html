@@ -6,7 +6,7 @@
       <th scope="col"> id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Email</th>
-      <th scope="col">Rol</th>
+      <th scope="col">Roles</th>
       <th scope="col">status</th>
       <th scope="col">Registro</th>
       <th scope="col">Operaciones</th>
@@ -19,9 +19,9 @@
           <td><?=$value->name?></td>
           <td class="text-primary"><?=$value->email?></td>
           <td>
-            <strong>
-                <?= ($value->rol)?"Admin":"User" ?>
-            </strong>
+            <small style="font-size:11px">
+                <?= $value->rol?>
+              </small>
           </td>
           <td>
               <a href="/panel/user/active/<?=$value->id?>">
@@ -32,7 +32,7 @@
           </td>
           <td><?=$value->fecha_registro?></td>
           <td>
-            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+            <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></a>
           </td>
         </tr>
     <?php endforeach; ?>

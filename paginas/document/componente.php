@@ -1,15 +1,14 @@
 <?php
  class Componente  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "file";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "file";
      }
 
      public function index(){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
         // Permite usar funciones definidas en helper
         // helper.class.php

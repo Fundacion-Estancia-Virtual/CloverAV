@@ -1,29 +1,28 @@
 <?php
  class User  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
-         if(!$context->sessionExist()) header("location:/");
+     function __construct(){
+       parent::__construct();
+         $this->title = "Inicio";
+         if(!$this->sessionExist()) header("location:/");
+         if(!$this->sessionUserIs("ADMIN")) header("location:/admin");
      }
      public function index(){
-         if($this->context->sessionUser()->rol == 0) header("location:/admin");
-         $usuarios = $this->context->model("user")->gets();
+         $usuarios = $this->model("user")->gets();
 
-         $html  = $this->context->create("_componentes/navLog");
-         $html  .= $this->context->create("_componentes/title",[
+         $html  = $this->create("_componentes/navLog");
+         $html  .= $this->create("_componentes/title",[
              "title" => "Usuarios"
          ]);
-         $html  .=  $this->context->create("admin/tableUser", [
+         $html  .=  $this->create("admin/tableUser", [
                         "usuarios" => $usuarios
          ]);
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
      function active($id){
-          if($this->context->sessionUser()->rol == 1){
-              $this->context->model("user")->active($id[0]);
+          if($this->sessionUserIs("ADMIN")){
+              $this->model("user")->active($id[0]);
           }
 
           header("location:/panel/user");

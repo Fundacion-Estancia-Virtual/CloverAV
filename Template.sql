@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-06-2022 a las 22:16:57
+-- Tiempo de generación: 25-06-2022 a las 01:11:51
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -39,7 +39,8 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id`, `id_user`, `name`, `description`) VALUES
-(2, 12, 'categoriaA', 'Lorem set data');
+(2, 12, 'categoriaA', 'Lorem set data'),
+(4, 13, 'categoriaB', 'der sde fasd');
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,7 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`id`, `id_user`, `name`, `description`, `img`, `id_categ`, `price`) VALUES
-(1, 12, 'item1', 'Lorem set', '#', 2, 0.000);
+(1, 13, 'item1w', 'Lorem set', '#', 4, 1.000);
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `password` varchar(70) NOT NULL,
   `email` varchar(70) NOT NULL,
-  `rol` int(11) NOT NULL DEFAULT 0,
+  `rol` varchar(50) NOT NULL DEFAULT 'ROL_USER',
   `status` tinyint(1) NOT NULL,
   `phone` int(11) DEFAULT NULL,
   `fecha_registro` datetime NOT NULL
@@ -86,9 +87,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `rol`, `status`, `phone`, `fecha_registro`) VALUES
-(12, 'Usuario', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'user@gmail.com', 0, 0, NULL, '2021-07-20 17:49:31'),
-(13, 'Administrador', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'admin@gmail.com', 1, 1, 5, '2021-07-20 18:39:11'),
-(14, 'Vendedor', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'vendedor@gmail.com', 0, 1, NULL, '2021-07-21 18:08:12');
+(12, 'Usuario', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'user@gmail.com', 'ROL_USER', 0, NULL, '2021-07-20 17:49:31'),
+(13, 'Administrador', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'admin@gmail.com', 'ROL_USER ROL_ADMIN', 1, 5, '2021-07-20 18:39:11'),
+(14, 'Vendedor', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'vendedor@gmail.com', 'ROL_USER ROL_VENDEDOR', 1, NULL, '2021-07-21 18:08:12');
 
 --
 -- Índices para tablas volcadas
@@ -124,13 +125,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

@@ -18,9 +18,18 @@
                  <input name="description"  required  placeholder="description"  class="form-control mb-3">
                  <input name="img"  required  placeholder="img"  class="form-control mb-3">
                  <input name="price"  required  placeholder="price"  class="form-control mb-3">
-                 <input name="id_user"  required  placeholder="id_user"  class="form-control mb-3">
-                 <input name="id_categ"  required  placeholder="id_categ"  class="form-control mb-3">
-                 
+                 <!-- <input name="id_user"  required  placeholder="id_user"  class="form-control mb-3"> -->
+                 <!-- <input name="id_categ"  required  placeholder="id_categ"  class="form-control mb-3"> -->
+
+
+                 <select required name="id_categ" class="form-select" aria-label="Default select example">
+                   <?php foreach ($categorias as $key => $value): ?>
+                    <option selected>Open this select categoria</option>
+                    <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                  <?php endforeach; ?>
+                </select>
+
+
                  <button type="submit" class="btn   my-3 btn-primary btn-sm">Agregar</button>
              </form>
    </div>

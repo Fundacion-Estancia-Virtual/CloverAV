@@ -1,29 +1,28 @@
 <?php
  class Signup  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Registrarse";
-         if($context->sessionExist()) header("location:/admin");
+     function __construct(){
+         parent::__construct();
+         $this->title = "Registrarse";
+         if($this->sessionExist()) header("location:/admin");
      }
 
      public function index($arg = null){
-         $html  = $this->context->create("_componentes/nav");
-         $html  .= $this->context->create("log/up");
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  = $this->create("_componentes/nav");
+         $html  .= $this->create("log/up");
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
      public function registrarse($arg = null){
           $msj = "";
-          if($this->context->model("user")->exist($_POST["email"]))
+          if($this->model("user")->exist($_POST["email"]))
           $msj = "El usuario con el email ya existe";
           else{
-            $this->context->model("user")->create($_POST["name"],password_hash( $_POST["pass1"], PASSWORD_DEFAULT), $_POST["email"]);
-            $this->context->sessionStart($_POST["email"]);
-            return $this->context->ok($_POST["email"],"Correctamente");
+            $this->model("user")->create($_POST["name"],password_hash( $_POST["pass1"], PASSWORD_DEFAULT), $_POST["email"]);
+            $this->sessionStart($_POST["email"]);
+            return $this->ok($_POST["email"],"Correctamente");
           }
-          return $this->context->error(200,$msj);
+          return $this->error(200,$msj);
      }
 
 }

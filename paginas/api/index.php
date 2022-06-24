@@ -1,9 +1,8 @@
 <?php
  class Api  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "About";
+     function __construct(){
+         parent::__construct();
+         $this->title = "About";
      }
 
      public function index(){
@@ -18,7 +17,7 @@
          ]
        ];
 
-       return $this->context->ok($data,"Correctamente");
+       return $this->ok($data,"Correctamente");
      }
 
 }

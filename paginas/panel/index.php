@@ -1,39 +1,38 @@
 <?php
  class Panel  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
-         if(!$context->sessionExist()){
+     function __construct( ){
+       parent::__construct();
+         $this->title = "Inicio";
+         if(!$this->sessionExist()){
              header("location:/");
              die();
          }
      }
      public function index(){
-         $usuario = $this->context->sessionUser();
-         $html  = $this->context->create("_componentes/navLog");
-         $html  .= $this->context->create("_componentes/title",[
+         $usuario = $this->sessionUser();
+         $html  = $this->create("_componentes/navLog");
+         $html  .= $this->create("_componentes/title",[
              "title" => "ADMIN"
          ]);
-          $html  .= $this->context->create("admin",[
+          $html  .= $this->create("admin",[
               "name" => "General",
               "cards" => $this->getGeneralCard()
           ]);
            if($usuario->status == 1){
-          $html  .= $this->context->create("admin",[
+          $html  .= $this->create("admin",[
               "name" => "Modelo",
               "cards" => $this->getModelCard()
           ]);
         }
-           if($usuario->rol == 1){
-               $html  .= $this->context->create("admin",[
+           if($this->sessionUserIs("ADMIN")){
+               $html  .= $this->create("admin",[
                    "name" => "Administrador",
                    "cards" => $this->getAdminCard()
                ]);
            }
-         $html  .= $this->context->create("admin");
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("admin");
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
      private function getGeneralCard()  {

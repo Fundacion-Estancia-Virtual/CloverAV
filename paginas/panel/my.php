@@ -1,30 +1,29 @@
 <?php
  class My  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
-         if(!$context->sessionExist()) header("location:/");
+     function __construct( ){
+         parent::__construct();
+         $this->title = "Inicio";
+         if(!$this->sessionExist()) header("location:/");
      }
      public function index(){
-         $us   = $this->context->sessionUser();
-         $html  = $this->context->create("_componentes/navLog");
-         $html  .= $this->context->create("_componentes/title",[
+         $us   = $this->sessionUser();
+         $html  = $this->create("_componentes/navLog");
+         $html  .= $this->create("_componentes/title",[
              "title" => "Mis datos"
          ]);
-         $html  .=  $this->context->create("admin/userdata", [
+         $html  .=  $this->create("admin/userdata", [
                  "name" =>$us->name,
                  "email" => $us->email,
                  "phone" => $us->phone
          ]);
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
 
      public function update( ){
-         $usuario   = $this->context->sessionUser();
-         $this->context->model("user")->update($_POST["tel"], $_POST["name"],$usuario->id);
+         $usuario   = $this->sessionUser();
+         $this->model("user")->update($_POST["tel"], $_POST["name"],$usuario->id);
          header("location:/panel/my");
      }
 }

@@ -31,7 +31,7 @@ class Model_User{
         $this->db->consult($qry,[$phone, $name, $id]);
     }
 
-    public function setRol($rol, $id) { 
+    public function setRol($rol, $id) {
         $qry = "UPDATE `users` SET  `rol` = ?  WHERE `id` = ? ";
         $this->db->consult($qry,[$rol, $id]);
     }
@@ -39,7 +39,7 @@ class Model_User{
 
     }
     public function active($id)  {
-        $statusOld = $this->getId($id)[0]->status;
+        $statusOld = $this->getById($id)[0]->status;
         $qry = "UPDATE `users` SET  `status` = ?  WHERE `id` = ? ";
         $this->db->consult($qry,[($statusOld)?'0':'1' ,$id]);
     }

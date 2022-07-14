@@ -14,13 +14,13 @@ class Model_User{
         $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
-    public function getId($id)  {
+    public function getById($id)  {
         $qry = "SELECT * FROM `users` WHERE `id` = ?";
         $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
 
-    public function create($name, $password, $email)  { 
+    public function create($name, $password, $email)  {
         $qry = "INSERT INTO `users`
             (`id`, `name`, `password`, `email`, `rol`, `phone`, `fecha_registro`, `status`)
             VALUES (DEFAULT,?,?,?,0,0, NOW(),0)";
@@ -29,6 +29,11 @@ class Model_User{
     public function update($phone, $name, $id)  {
         $qry = "UPDATE `users` SET  `phone` = ?,  `name` = ? WHERE `id` = ? ";
         $this->db->consult($qry,[$phone, $name, $id]);
+    }
+
+    public function setRol($rol, $id) { 
+        $qry = "UPDATE `users` SET  `rol` = ?  WHERE `id` = ? ";
+        $this->db->consult($qry,[$rol, $id]);
     }
     public function delete($id){
 

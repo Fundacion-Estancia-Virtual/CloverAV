@@ -26,9 +26,8 @@ height: 980px;
   align-items: center;
   top: 0px;
   animation: cargainicio 3s 1;
-
-  z-index: -1 !important;
-  opacity: 0;
+  z-index: 10000  !important;
+  opacity: 1;
 }
 .loader img{
   animation: zoom 3s 1;
@@ -45,21 +44,16 @@ height: 980px;
 
 @keyframes cargainicio {
   0%{
-    z-index: 100;
     opacity: 1;
 
-    
+
   }
   60%{
-    z-index: 100;
     opacity: 1;
 
-    
+
   }
   100%{
-    z-index: 100;
     opacity: 0;
-
-    
   }
 }

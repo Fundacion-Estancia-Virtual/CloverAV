@@ -12,3 +12,12 @@ window.addEventListener('scroll', function(e) {
   }
 
 });
+
+
+let x = document.querySelector(".loader");
+x.addEventListener("webkitAnimationEnd", myEndFunction);
+x.addEventListener("animationend", myEndFunction);
+
+function myEndFunction(e) {  
+  e.target.parentNode.removeChild(e.target);
+}

@@ -1,0 +1,69 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Listando Citas</h4>
+        <a href="/panel">Panel</a> / <a href="/citas">Citas</a>
+      </div>
+  <section />
+
+  <section >
+      <div class="container">
+          <div class="float-end py-2">
+              <a href="/panel/citas/create" class="btn btn-primary btn-sm">Añadir citas</a>
+          </div>
+              <table class="table   table-hover text-center">
+                <thead class=" shadow-sm">
+                  <tr>
+                    <th scope="col">#id</th>
+                    <th scope="col">fecha</th>
+                 <th scope="col">mensaje</th>
+                 <th scope="col">id_registro</th>
+                 <th scope="col">creacioncita</th>
+                 <th scope="col">estado</th>
+                 <th scope="col">id_propiedad</th>
+                 <th scope="col">id_visitante</th>
+                 <th scope="col">nombrevisita</th>
+                 
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                      <?php foreach ($data as $key => $value): ?>
+                          <tr>
+                            <td><?= $value->id?></td>
+                            <td><?= $value->fecha?></td>
+                 <td><?= $value->mensaje?></td>
+                 <td><?= $value->id_registro?></td>
+                 <td><?= $value->creacioncita?></td>
+                 <td><?= $value->estado?></td>
+                 <td><?= $value->id_propiedad?></td>
+                 <td><?= $value->id_visitante?></td>
+                 <td><?= $value->nombrevisita?></td>
+                 
+                          <td>
+                            <a href="/citas/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a>
+                            <a href="/panel/citas/delete/<?= $value->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/panel/citas/update/<?= $value->id?>" class="btn btn-primary btn-sm">Actualizar</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+              </table>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

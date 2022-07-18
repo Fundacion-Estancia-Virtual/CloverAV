@@ -1,4 +1,24 @@
 nav a{
     text-decoration: none;
     color: #777;
+    position: ;
+    
+
+}
+
+#smallNav{
+
+  width: 100vw;
+ margin-left: 100px;
+
+ border-bottom-right-radius: 100px;
+ border-bottom-left-radius:  100px;
+
+}
+
+#smallNav{
+
+
+background-size: cover;
+
 }

@@ -8,8 +8,6 @@
      public function index(){
        $data = [
          "Saludo" => "Hola",
-         "Saludo" => $this->sessionUser(),
-         "Saludo" => $this->sessionUserIs("ADMIN"),
          "version"=> "2.4",
          "items" => [
            "Loresm",

@@ -20,9 +20,7 @@
          $html  .= $this->create("_componentes/infocloverav", [
              "ventainmo" => $this->create("_componentes/serviciosclover/ventasinmo")
          ]);
-         $html  .= $this->create("_componentes/constructrabajador", [
-
-         ]);
+         $html  .= $this->create("_componentes/constructrabajador");
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);
      }

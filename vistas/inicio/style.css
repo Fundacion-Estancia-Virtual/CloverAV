@@ -8,6 +8,11 @@
     background-repeat: no-repeat;
 }
 
+body{
+  background: #0A1908;
+  background-image: url("/brillos.png");
+  background-size: 4px 4px; 
+}
 
 #wallpa2{
 border-bottom-left-radius: 310px;

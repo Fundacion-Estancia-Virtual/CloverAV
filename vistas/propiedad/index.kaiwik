@@ -1,0 +1,47 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Propiedad</h4>
+        <a href="/">Home</a> / Propiedad
+      </div>
+  <section />
+
+  <section >
+      <div class="container py-3">
+
+          <div class="row">
+              <?php foreach ($data as $key => $value): ?>
+                <div class="col-md-4 ">
+                  <div class="card p-3 m-2">
+                      <p class="text-muted"><?= $value->id?></p>
+                        <p><?= $value->direccion ?></p>
+                 <p><?= $value->imagenes ?></p>
+                 <p><?= $value->id_usuario ?></p>
+                 <p><?= $value->categoria ?></p>
+                 <p><?= $value->descripcion ?></p>
+                 
+                      <a href="/propiedad/<?= $value->id?>">Detalles</a>
+                    </div>
+                  </div>
+              <?php endforeach; ?>
+          </div>
+
+
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

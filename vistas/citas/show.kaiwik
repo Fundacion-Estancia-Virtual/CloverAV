@@ -1,0 +1,37 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4> Detalles </h4>
+        <a href="/">Home</a> / <a href="/citas"> Citas</a> / <?= $data->id?>
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+      <strong>fecha</strong><p><?= $data->fecha ?></p>
+    <strong>mensaje</strong><p><?= $data->mensaje ?></p>
+    <strong>id_registro</strong><p><?= $data->id_registro ?></p>
+    <strong>creacioncita</strong><p><?= $data->creacioncita ?></p>
+    <strong>estado</strong><p><?= $data->estado ?></p>
+    <strong>id_propiedad</strong><p><?= $data->id_propiedad ?></p>
+    <strong>id_visitante</strong><p><?= $data->id_visitante ?></p>
+    <strong>nombrevisita</strong><p><?= $data->nombrevisita ?></p>
+    
+      </div>
+   </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

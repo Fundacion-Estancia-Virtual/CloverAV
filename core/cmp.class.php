@@ -14,11 +14,11 @@ class Cmp{
 
         preg_match_all('/[.]+.+{/', $css , $resultado, PREG_SET_ORDER, 0);
 
-        $hash = substr(md5(time()),0,16);
+        $hash = substr(md5(time()),0,4);
         foreach ($resultado as $key => $value) {
-            $css =  str_replace($value[0] , "#$hash ".$value[0] , $css) ;
+            $css =  str_replace($value[0] , "#kai$hash ".$value[0] , $css) ;
         }
-        $html =  str_replace("<kaiwik>" , "<kaiwik id='$hash' >"  , $html) ;
+        $html =  str_replace("<kaiwik>" , "<kaiwik id='kai$hash' >"  , $html) ;
         return [$html, $css, $script];
     }
     function create($name, $arg = []) {

@@ -1,0 +1,32 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4> Detalles </h4>
+        <a href="/">Home</a> / <a href="/servicioscons"> Servicioscons</a> / <?= $data->id?>
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+      <strong>nombreserv</strong><p><?= $data->nombreserv ?></p>
+    <strong>foto</strong><p><?= $data->foto ?></p>
+    <strong>descripcion</strong><p><?= $data->descripcion ?></p>
+    
+      </div>
+   </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

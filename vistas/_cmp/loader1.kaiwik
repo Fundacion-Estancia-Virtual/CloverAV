@@ -1,0 +1,81 @@
+<script>
+    console.log("HOLA");
+</script>
+
+
+<kaiwik>
+    <section class="loader">
+      <div class="box">
+        <div class="barra"></div>
+        <div class="barra"></div>
+        <div class="barra"></div>
+      </div>
+    </section>
+</kaiwik>
+
+<style>
+    .loader{
+      background:#007bff!important;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: ease-out entry 2s ;
+      animation-play-state: 1;
+      left: -100vw;
+    }
+
+    @keyframes entry {
+      0%{
+        left: -100vw;
+      }
+      25%{
+        left: 0px;
+      }
+      75%{
+        left: 0px;
+      }
+      100%{
+        left: -100vw;
+      }
+    }
+    .box{
+      width: 300px;
+      height: 90px;
+      overflow: hidden;
+    }
+    .barra{
+      width: 400px;
+      height: 30px;
+      background: white;
+        margin-left: -300px;
+    }
+    .barra:nth-child(1){
+      animation:ease-out lr 2s infinite;
+      animation-delay: 0s;
+    }
+    .barra:nth-child(2){
+      animation: ease-out lr 2s infinite;
+      animation-delay: 0.15s;
+    }
+    .barra:nth-child(3){
+      animation:ease-out  lr 2s infinite;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes lr {
+      0%{
+        margin-left: -400px;
+      }
+      50%{
+        margin-left: 400px;
+      }
+      100%{
+        margin-left: -400px;
+      }
+    }
+
+</style>

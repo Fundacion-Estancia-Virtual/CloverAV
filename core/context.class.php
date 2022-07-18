@@ -8,11 +8,9 @@ include 'cmp.class.php';
 class Context{
     public $title ;  private $css = []; private $js = [];
     private $csscmp = ""; private $jscmp = "";
-
-    function __construct($ddbb){
-        $this->db = $ddbb;
+    function __construct(){
+        $this->db = $GLOBALS["db"];
     }
-
     public function help($name, $args){
         $obj = new Helper();
         return $obj->$name(...$args);
@@ -52,6 +50,16 @@ class Context{
        session_start();  return isset($_SESSION['userId']);
     }
 
+    function sessionUserIs($rol){
+      session_start();
+      $user = $this->model("user")->get($_SESSION['userId']);
+      if($user != []){
+        $roles = explode(" ", $user[0]->rol);
+        return in_array("ROL_".$rol,$roles);
+      }
+      return false;
+  }
+
 
     // Template
      function create($name, $arg = []) {
@@ -71,14 +79,15 @@ class Context{
     }
 
     function ret( $html) {
+
        return [
            "type" => "html",
            "title" => $this->title,
            "css" => $this->css,
            "html" => $html,
            "js" => $this->js,
-           "csscmp" => $this->csscmp,
-           "jscmp" => $this->jscmp,
+           "bundlecss" => "<style type='text/css'>$this->csscmp</style>",
+           "bundlejs" => "<script type='text/javascript'>$this->jscmp</script>"
        ];
    }
 

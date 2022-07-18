@@ -1,21 +1,30 @@
 <?php
  class Inicio  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
+     function __construct(){
+         parent::__construct();
+         $this->title = "Inicio";
      }
      public function index(){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
-         $html  .= $this->context->create("inicio", [
+         $html  .= $this->create("inicio", [
              "title" => "Inicio"
          ]);
+         $html  .= $this->create("_componentes/serviciosclover", [
+             "ventainmo" => $this->create("_componentes/serviciosclover/ventasinmo"),
+              "serviciocateg" => $this->create("_componentes/serviciosclover/construccel"),
+              "appmyevent" => $this->create("_componentes/serviciosclover/appmyevent")
+         ]);
+         $html  .= $this->create("_componentes/infocloverav", [
+             "ventainmo" => $this->create("_componentes/serviciosclover/ventasinmo")
+         ]);
+         $html  .= $this->create("_componentes/constructrabajador", [
 
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         ]);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 }
 

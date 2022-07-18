@@ -1,0 +1,21 @@
+<script>
+    console.log("HOLA");
+</script>
+
+
+<kaiwik>
+    <section >
+        <div class="container py-3">
+            <h2 class="colo card px-3" >Hola <?= $name ?></h2>
+         </div>
+    </section>
+</kaiwik>
+
+<style>
+    .colo{
+        color: black;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

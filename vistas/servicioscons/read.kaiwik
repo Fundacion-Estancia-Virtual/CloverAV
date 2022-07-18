@@ -1,0 +1,59 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Listando Servicioscons</h4>
+        <a href="/panel">Panel</a> / <a href="/servicioscons">Servicioscons</a>
+      </div>
+  <section />
+
+  <section >
+      <div class="container">
+          <div class="float-end py-2">
+              <a href="/panel/servicioscons/create" class="btn btn-primary btn-sm">Añadir servicioscons</a>
+          </div>
+              <table class="table   table-hover text-center">
+                <thead class=" shadow-sm">
+                  <tr>
+                    <th scope="col">#id</th>
+                    <th scope="col">nombreserv</th>
+                 <th scope="col">foto</th>
+                 <th scope="col">descripcion</th>
+                 
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                      <?php foreach ($data as $key => $value): ?>
+                          <tr>
+                            <td><?= $value->id?></td>
+                            <td><?= $value->nombreserv?></td>
+                 <td><?= $value->foto?></td>
+                 <td><?= $value->descripcion?></td>
+                 
+                          <td>
+                            <a href="/servicioscons/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a>
+                            <a href="/panel/servicioscons/delete/<?= $value->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/panel/servicioscons/update/<?= $value->id?>" class="btn btn-primary btn-sm">Actualizar</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+              </table>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

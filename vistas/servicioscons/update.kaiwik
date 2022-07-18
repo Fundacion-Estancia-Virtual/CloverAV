@@ -1,0 +1,38 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Actualizar  Servicioscons</h4>
+        <a href="/panel">Panel</a> / <a href="/panel/entidad"> Servicioscons</a> / update
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+             <form class="" action="/panel/servicioscons/update/put" method="post">
+                <input name="id" value="<?= $data->id ?>" required   hidden />
+                  <input name="nombreserv" value="<?= $data->nombreserv ?>" required  placeholder="nombreserv"  class="form-control mb-3" />
+                 <input name="foto" value="<?= $data->foto ?>" required  placeholder="foto"  class="form-control mb-3" />
+                 <input name="descripcion" value="<?= $data->descripcion ?>" required  placeholder="descripcion"  class="form-control mb-3" />
+                 
+                 <button type="submit" class="btn   my-3 btn-primary btn-sm">Actualizar</button>
+             </form>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>
+
+

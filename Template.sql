@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2021 a las 01:26:20
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.4.8
+-- Tiempo de generación: 25-06-2022 a las 01:11:51
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,48 +24,46 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Estructura de tabla para la tabla `categoria`
 --
 
-CREATE TABLE `categorias` (
+CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `description` varchar(200) NOT NULL
+  `description` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categorias` (`id`, `id_user`, `name`, `description`) VALUES
-(2, 13, 'frutas', 'campana'),
-(3, 12, 'imanes', 'asdasd'),
-(8, 13, 'Verduras', 'desarrollo de paginas y aplicaciones web');
+INSERT INTO `categoria` (`id`, `id_user`, `name`, `description`) VALUES
+(2, 12, 'categoriaA', 'Lorem set data'),
+(4, 13, 'categoriaB', 'der sde fasd');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `item`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `item` (
   `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `img` varchar(200) NOT NULL,
-  `id_categoria` int(11) NOT NULL,
+  `description` varchar(20) NOT NULL,
+  `img` varchar(20) NOT NULL,
+  `id_categ` int(11) NOT NULL,
   `price` float(10,3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Volcado de datos para la tabla `item`
 --
 
-INSERT INTO `producto` (`id`, `name`, `description`, `img`, `id_categoria`, `price`) VALUES
-(10, 'manzna1', 'sdffs', 'sdfsdf', 3, 5.000),
-(11, 'manzan ', 'manzana', 'manzana', 8, 6.000),
-(13, 'Primer prodcuto', 'desarrollo de paginas y aplicaciones web', '123', 2, 123.000);
+INSERT INTO `item` (`id`, `id_user`, `name`, `description`, `img`, `id_categ`, `price`) VALUES
+(1, 13, 'item1w', 'Lorem set', '#', 4, 1.000);
 
 -- --------------------------------------------------------
 
@@ -78,7 +76,7 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `password` varchar(70) NOT NULL,
   `email` varchar(70) NOT NULL,
-  `rol` int(11) NOT NULL DEFAULT 0,
+  `rol` varchar(50) NOT NULL DEFAULT 'ROL_USER',
   `status` tinyint(1) NOT NULL,
   `phone` int(11) DEFAULT NULL,
   `fecha_registro` datetime NOT NULL
@@ -89,27 +87,28 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `rol`, `status`, `phone`, `fecha_registro`) VALUES
-(12, 'Usuario', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'user@gmail.com', 0, 0, NULL, '2021-07-20 17:49:31'),
-(13, 'Administrador', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'admin@gmail.com', 1, 1, 0, '2021-07-20 18:39:11'),
-(14, 'Vendedor', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'vendedor@gmail.com', 0, 1, NULL, '2021-07-21 18:08:12');
+(12, 'Usuario', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'user@gmail.com', 'ROL_USER', 0, NULL, '2021-07-20 17:49:31'),
+(13, 'Administrador', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'admin@gmail.com', 'ROL_USER ROL_ADMIN', 1, 5, '2021-07-20 18:39:11'),
+(14, 'Vendedor', '$2y$10$QJVfoR.ITwC386JHn9a8I.aGbibVS.jOMdwz6gbxylpDWkE/CanfW', 'vendedor@gmail.com', 'ROL_USER ROL_VENDEDOR', 1, NULL, '2021-07-21 18:08:12');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indices de la tabla `categoria`
 --
-ALTER TABLE `categorias`
+ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `item`
 --
-ALTER TABLE `producto`
+ALTER TABLE `item`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoria` (`id_categoria`);
+  ADD KEY `id_categ` (`id_categ`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indices de la tabla `users`
@@ -123,38 +122,39 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT de la tabla `categoria`
 --
-ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT de la tabla `item`
 --
-ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `item`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `categorias`
+-- Filtros para la tabla `categoria`
 --
-ALTER TABLE `categorias`
-  ADD CONSTRAINT `categorias_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `categoria`
+  ADD CONSTRAINT `categoria_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `producto`
+-- Filtros para la tabla `item`
 --
-ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `item`
+  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `item_ibfk_2` FOREIGN KEY (`id_categ`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,59 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Listando Categoria</h4>
+        <a href="/panel">Panel<a/> / <a href="/categoria">Categoria<a/>
+      </div>
+  <section />
+
+  <section >
+      <div class="container">
+          <div class="float-end py-2">
+              <a href="/panel/categoria/create" class="btn btn-primary btn-sm">Añadir categoria</a>
+          </div>
+              <table class="table   table-hover text-center">
+                <thead class=" shadow-sm">
+                  <tr>
+                    <th scope="col">#id</th>
+                    <th scope="col">id_user</th>
+                 <th scope="col">name</th>
+                 <th scope="col">description</th>
+                 
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                      <?php foreach ($data as $key => $value): ?>
+                          <tr>
+                            <td><?= $value->id?></td>
+                            <td><?= $value->id_user?></td>
+                 <td><?= $value->name?></td>
+                 <td><?= $value->description?></td>
+                 
+                          <td>
+                            <a href="/categoria/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a>
+                            <a href="/panel/categoria/delete/<?= $value->id?>" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="/panel/categoria/update/<?= $value->id?>" class="btn btn-primary btn-sm">Actualizar</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+              </table>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

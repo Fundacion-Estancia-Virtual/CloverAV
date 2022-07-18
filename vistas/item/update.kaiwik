@@ -1,0 +1,48 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Actualizar  Item</h4>
+        <a href="/panel">Panel<a/> / <a href="/panel/entidad"> Item<a/> / update
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+             <form class="" action="/panel/item/update/put" method="post">
+                <input name="id" value="<?= $data->id ?>" required   hidden />
+                  <input name="name" value="<?= $data->name ?>" required  placeholder="name"  class="form-control mb-3" />
+                 <input name="description" value="<?= $data->description ?>" required  placeholder="description"  class="form-control mb-3" />
+                 <input name="img" value="<?= $data->img ?>" required  placeholder="img"  class="form-control mb-3" />
+                 <input name="price" value="<?= $data->price ?>" required  placeholder="price"  class="form-control mb-3" />
+                 <!-- <input name="id_user" value="<?= $data->id_user ?>" required  placeholder="id_user"  class="form-control mb-3" />
+                 <input name="id_categ" value="<?= $data->id_categ ?>" required  placeholder="id_categ"  class="form-control mb-3" /> -->
+                 <select name="id_categ" required class="form-select" aria-label="Default select example">
+                   <?php foreach ($categorias as $key => $value): ?>
+                     <?php if ($value->id == $data->id_categ): ?>
+                       <option selected value="<?= $value->id ?>"><?= $value->name ?></option>
+                     <?php else: ?>
+                       <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                     <?php endif; ?>
+                  <?php endforeach; ?>
+                </select>
+
+                 <button type="submit" class="btn   my-3 btn-primary btn-sm">Actualizar</button>
+             </form>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

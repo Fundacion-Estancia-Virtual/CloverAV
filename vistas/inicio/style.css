@@ -5,5 +5,61 @@
     padding: 7.5rem 0;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
+}
+
+
+#wallpa2{
+border-bottom-left-radius: 310px;
+height: 980px;
+}
+
+
+.loader{
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  animation: cargainicio 3s 1;
+
+  z-index: -1 !important;
+  opacity: 0;
+}
+.loader img{
+  animation: zoom 3s 1;
+}
+
+@keyframes zoom {
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.3);
+  }
+}
+
+@keyframes cargainicio {
+  0%{
+    z-index: 100;
+    opacity: 1;
+
+    
+  }
+  60%{
+    z-index: 100;
+    opacity: 1;
+
+    
+  }
+  100%{
+    z-index: 100;
+    opacity: 0;
+
+    
+  }
 }

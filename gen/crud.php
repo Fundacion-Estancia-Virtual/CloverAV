@@ -1,5 +1,6 @@
 <?php
 
+// php gen/crud.php test name:string price:float valor:int
 include 'core/conexion.class.php';
 include 'config.php';
 
@@ -55,6 +56,11 @@ class Model_'.ucfirst($ENTIDAD).'{
     }
     public function get($id){
         $qry = "SELECT * FROM `'.$ENTIDAD.'`   WHERE id = ? ";
+        $data  = $this->db->consult($qry, [$id]);
+        return $data;
+    }
+    public function getsByUser($id){
+        $qry = "SELECT * FROM `'.$ENTIDAD.'`  WHERE id_user = ? ";
         $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
@@ -139,24 +145,23 @@ if($archivo == false ){
 }
 fwrite($archivo,'<?php
  class Create  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "'.ucfirst($ENTIDAD).'";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "'.ucfirst($ENTIDAD).'";
      }
      public function index(){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
-         $html .= $this->context->create("'.$ENTIDAD.'/create");
+         $html .= $this->create("'.$ENTIDAD.'/create");
 
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
      public function add($value=""){
-       $this->context->model("'.$ENTIDAD.'")->create(
+       $this->model("'.$ENTIDAD.'")->create(
            '.createArgAdd($ATRIBUTOS).'
         );
        header("location:/panel/'.$ENTIDAD.'");
@@ -198,7 +203,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>Añadir '.ucfirst($ENTIDAD).'</h4>
-        <a href="/panel">Panel<a/> / <a href="/panel/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'<a/> / new
+        <a href="/panel">Panel</a> / <a href="/panel/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'</a> / new
       </div>
   <section />
 
@@ -253,7 +258,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>Listando '.ucfirst($ENTIDAD).'</h4>
-        <a href="/panel">Panel<a/> / <a href="/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'<a/>
+        <a href="/panel">Panel</a> / <a href="/'.$ENTIDAD.'">'.ucfirst($ENTIDAD).'</a>
       </div>
   <section />
 
@@ -335,27 +340,26 @@ if($archivo == false ){
 }
 fwrite($archivo,'<?php
  class '.ucfirst($ENTIDAD).'  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "'.ucfirst($ENTIDAD).'";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "'.ucfirst($ENTIDAD).'";
      }
      public function index(){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
-         $data = $this->context->model("'.$ENTIDAD.'")->gets();
+         $data = $this->model("'.$ENTIDAD.'")->gets();
 
-         $html .= $this->context->create("'.$ENTIDAD.'/read", $data);
+         $html .= $this->create("'.$ENTIDAD.'/read", $data);
 
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
      public function delete($args=[]){
        $id = $args[0];
-       $this->context->model("'.$ENTIDAD.'")->delete($id );
+       $this->model("'.$ENTIDAD.'")->delete($id );
        header("location:/panel/'.$ENTIDAD.'");
     }
 }
@@ -385,7 +389,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>Actualizar  '.ucfirst($ENTIDAD).'</h4>
-        <a href="/panel">Panel<a/> / <a href="/panel/entidad"> '.ucfirst($ENTIDAD).'<a/> / update
+        <a href="/panel">Panel</a> / <a href="/panel/entidad"> '.ucfirst($ENTIDAD).'</a> / update
       </div>
   <section />
 
@@ -442,7 +446,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4>'.ucfirst($ENTIDAD).'</h4>
-        <a href="/">Home<a/> / '.ucfirst($ENTIDAD).'
+        <a href="/">Home</a> / '.ucfirst($ENTIDAD).'
       </div>
   <section />
 
@@ -451,7 +455,7 @@ fwrite($archivo,'<script>
 
           <div class="row">
               <?php foreach ($data as $key => $value): ?>
-                <div class="col-4 ">
+                <div class="col-md-4 ">
                   <div class="card p-3 m-2">
                       <p class="text-muted"><?= $value->id?></p>
                         '.valueIndexList($ATRIBUTOS).'
@@ -500,24 +504,23 @@ if($archivo == false ){
 }
 fwrite($archivo,'<?php
  class Update  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "Inicio";
      }
      public function index($args = []){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
-         $data = $this->context->model('.$ENTIDAD.')->get($args[0]);
-         $html .= $this->context->create("'.$ENTIDAD.'/update", $data[0]);
+         $data = $this->model('.$ENTIDAD.')->get($args[0]);
+         $html .= $this->create("'.$ENTIDAD.'/update", $data[0]);
 
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
      public function put($arg = []){
-       $this->context->model("'.$ENTIDAD.'")->update(
+       $this->model("'.$ENTIDAD.'")->update(
          '.createArgAdd($ATRIBUTOS).',
           $_POST["id"]
         );
@@ -543,25 +546,24 @@ if($archivo == false ){
 }
 fwrite($archivo,'<?php
  class '.ucfirst($ENTIDAD).'  extends Context {
-     private $context;
-     function __construct($context){
-         $this->context = $context;
-         $this->context->title = "Inicio";
+     function __construct( ){
+         parent::__construct();
+         $this->title = "Inicio";
      }
      public function index($arg = []){
-         $html  = ($this->context->sessionExist())
-            ?$this->context->create("_componentes/navLog")
-            :$this->context->create("_componentes/nav");
+         $html  = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/nav");
 
          if(count($arg)){
-           $data = $this->context->model("'.$ENTIDAD.'")->get($arg[0])[0];
-           $html .= $this->context->create("'.$ENTIDAD.'/show",$data);
+           $data = $this->model("'.$ENTIDAD.'")->get($arg[0])[0];
+           $html .= $this->create("'.$ENTIDAD.'/show",$data);
          }else {
-           $data = $this->context->model("'.$ENTIDAD.'")->gets();
-           $html .= $this->context->create("'.$ENTIDAD.'/index", $data);
+           $data = $this->model("'.$ENTIDAD.'")->gets();
+           $html .= $this->create("'.$ENTIDAD.'/index", $data);
          }
-         $html  .= $this->context->create("_componentes/footer");
-         return $this->context->ret($html);
+         $html  .= $this->create("_componentes/footer");
+         return $this->ret($html);
      }
 
 }
@@ -589,7 +591,7 @@ fwrite($archivo,'<script>
   <section >
       <div class="container pt-5">
         <h4> Detalles </h4>
-        <a href="/">Home<a/> / <a href="/'.$ENTIDAD.'"> '.ucfirst($ENTIDAD).'<a/> / <?= $data->id?>
+        <a href="/">Home</a> / <a href="/'.$ENTIDAD.'"> '.ucfirst($ENTIDAD).'</a> / <?= $data->id?>
       </div>
   <section />
 

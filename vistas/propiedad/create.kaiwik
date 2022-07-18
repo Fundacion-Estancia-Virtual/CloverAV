@@ -1,0 +1,51 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Añadir Propiedad</h4>
+        <a href="/panel">Panel</a> / <a href="/panel/propiedad">Propiedad</a> / new
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+             <form class="" action="/panel/propiedad/create/add" method="post">
+                 <input name="direccion"  required  placeholder="direccion"  class="form-control mb-3">
+                 <input name="imagenes"  required  placeholder="imagenes"  class="form-control mb-3">
+
+                 <select required name="propietario" class="form-select mb-3" aria-label="Default select example">
+                  <option selected>Open this select propietario</option>
+                   <?php foreach ($usuarios as $key => $value): ?>
+
+                    <option value="<?= $value['id'] ?>"><?= $value['nombre'] ?></option>
+                  <?php endforeach; ?>
+                </select>
+                 <select required name="categoria" class="form-select mb-3" aria-label="Default select example">
+
+                    <option selected>Open this select categoria</option>
+                    <option value="venta">Venta</option>
+                    <option value="renta">Renta</option>
+                    <option value="remodelacion">Remodelacion</option>
+
+                </select>
+                 <input name="descripcion"  required  placeholder="descripcion"  class="form-control mb-3">
+
+                 <button type="submit" class="btn   my-3 btn-primary btn-sm">Agregar</button>
+             </form>
+   </div>
+   </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>

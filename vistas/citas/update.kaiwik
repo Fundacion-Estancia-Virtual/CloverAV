@@ -1,0 +1,43 @@
+<script>
+    console.log("HOLA");
+</script>
+
+<kaiwik>
+
+  <section >
+      <div class="container pt-5">
+        <h4>Actualizar  Citas</h4>
+        <a href="/panel">Panel</a> / <a href="/panel/entidad"> Citas</a> / update
+      </div>
+  <section />
+
+  <section>
+      <div class="container py-5 ">
+             <form class="" action="/panel/citas/update/put" method="post">
+                <input name="id" value="<?= $data->id ?>" required   hidden />
+                  <input name="fecha" value="<?= $data->fecha ?>" required  placeholder="fecha"  class="form-control mb-3" />
+                 <input name="mensaje" value="<?= $data->mensaje ?>" required  placeholder="mensaje"  class="form-control mb-3" />
+                 <input name="id_registro" value="<?= $data->id_registro ?>" required  placeholder="id_registro"  class="form-control mb-3" />
+                 <input name="creacioncita" value="<?= $data->creacioncita ?>" required  placeholder="creacioncita"  class="form-control mb-3" />
+                 <input name="estado" value="<?= $data->estado ?>" required  placeholder="estado"  class="form-control mb-3" />
+                 <input name="id_propiedad" value="<?= $data->id_propiedad ?>" required  placeholder="id_propiedad"  class="form-control mb-3" />
+                 <input name="id_visitante" value="<?= $data->id_visitante ?>" required  placeholder="id_visitante"  class="form-control mb-3" />
+                 <input name="nombrevisita" value="<?= $data->nombrevisita ?>" required  placeholder="nombrevisita"  class="form-control mb-3" />
+                 
+                 <button type="submit" class="btn   my-3 btn-primary btn-sm">Actualizar</button>
+             </form>
+      </div>
+  </section>
+
+</kaiwik>
+
+<style>
+    .colo{
+        color: blue;
+    }
+    .colo2{
+        color: green;
+    }
+</style>
+
+

@@ -14,6 +14,11 @@ class Model_User{
         $data  = $this->db->consult($qry, [$id]);
         return $data;
     }
+    public function getByServicio($id)  {
+        $qry = "SELECT * FROM `users` WHERE id_servicio = ?";
+        $data  = $this->db->consult($qry, [$id]);
+        return $data;
+    }
     public function getById($id)  {
         $qry = "SELECT * FROM `users` WHERE `id` = ?";
         $data  = $this->db->consult($qry, [$id]);

@@ -18,20 +18,20 @@
               "name" => "General",
               "cards" => $this->getGeneralCard()
           ]);
- 
+
         //    if($usuario->status == 1){
         //   $html  .= $this->create("admin",[
         //       "name" => "Modelo",
         //       "cards" => $this->getModelCard()
         //   ]);
-        // } 
+        // }
            if($this->sessionUserIs("ADMIN")){
                $html  .= $this->create("admin",[
                    "name" => "Administrador",
                    "cards" => $this->getAdminCard()
                ]);
            }
- 
+
            if($this->sessionUserIs("RH")){
                $html  .= $this->create("admin",[
                    "name" => "Recursos Humanos",
@@ -49,31 +49,41 @@
                    "name" => "Accesos del Vendedor",
                    "cards" => $this->getvendedorCard()
                ]);
-           } 
+           }
          $html  .= $this->create("admin");
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);
      }
 
      private function getGeneralCard()  {
-         return [
-             [
-                 "img" => "@recursos/icons/user.svg",
-                 "title" => "Mis datos",
-                 "url" => "/panel/my"
-            ],
-             [
-                 "img" => "@recursos/icons/cuenta.svg",
-                 "title" => "Cuenta",
-                 "url" => "#"
-            ],
-             [
-                 "img" => "@recursos/icons/config.svg",
-                 "title" => "Configuración",
-                 "url" => "#"
-            ],
+       $tarjeta = [
+         [
+             "img" => "@recursos/icons/user.svg",
+             "title" => "Mis datos",
+             "url" => "/panel/my"
+        ],
+         [
+             "img" => "@recursos/icons/cuenta.svg",
+             "title" => "Cuenta",
+             "url" => "#"
+        ],
+        [
+            "img" => "@recursos/icons/config.svg",
+            "title" => "Configuración",
+            "url" => "#"
+       ]
+      ];
+      
+       if($this->sessionUserIs("ASTRONAUTA")){
+         $tarjeta[] = [
+             "img" => "@recursos/icons/config.svg",
+             "title" => "ASTRONAUTA",
+             "url" => "#"
         ];
+       }
+       return  $tarjeta;
      }
+
      private function getModelCard()  {
          return [
              [
@@ -91,7 +101,7 @@
                  "title" => "Pedidos",
                  "url" => "/adminPedidos"
             ]
- 
+
         ];
      }
      private function getAdminCard()  {
@@ -119,20 +129,20 @@
                  "img" => "@recursos/icons/proba.svg",
                  "title" => "Seguimiento",
                  "url" => "/"
-            ], 
+            ],
         ];
      }
      private function getpropiCard()  {
          return [
              [
                 "img" => "@recursos/icons/team.svg",
- 
+
                  "title" => "Registros de Propiedades",
                  "url" => "/panel/propiedad"
             ],
              [
                  "img" => "@recursos/icons/proba.svg",
-                 "title" => "Documentacion", 
+                 "title" => "Documentacion",
                  "url" => "/"
             ],
         ];

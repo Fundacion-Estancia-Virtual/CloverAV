@@ -1,0 +1,41 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section class="bg-infomain" id="cardA">
+    <div class="container py-5 ">
+      <div class="row">
+        <div class="col-md-6">
+          <img class="w-100" src="https://picsum.photos/536/354" alt="">
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 d-flex align-items-center">
+            <div class="flaot-card bg-white p-md-5 p-3  shadow-sm">
+              <div class="py-md-3">
+                <h3 class="fw-light "><?= $title ?></h3>
+                <p class=""><?= $parrafo ?></p>
+                <a href="<?= $url ?>"> <i class="bi bi-link-45deg"></i> <?= $text ?>  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</kaiwik>
+
+
+<style>
+
+.flaot-card{
+  margin-left: 0px;
+}
+
+@media  screen and (min-width: 768px) {
+  .flaot-card{
+    margin-left: -60px;
+  }
+}
+
+</style>

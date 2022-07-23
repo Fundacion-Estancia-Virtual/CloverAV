@@ -12,7 +12,8 @@ class Cmp{
         $html = $this->get_string_between($template,"</script>","<style>");
         $css = $this->get_string_between($template,"<style>","</style>");
 
-        preg_match_all('/[.]+.+{/', $css , $resultado, PREG_SET_ORDER, 0);
+        // preg_match_all('/[.]+.+{/', $css , $resultado, PREG_SET_ORDER, 0);
+        preg_match_all('/[.]+.+{/', $css , $resultado);
 
         $hash = substr(md5(time()),0,4);
         foreach ($resultado as $key => $value) {

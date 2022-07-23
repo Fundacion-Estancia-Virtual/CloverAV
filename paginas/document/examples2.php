@@ -10,7 +10,7 @@
             ?$this->create("_componentes/navLog")
             :$this->create("_componentes/nav");
          $html  .= $this->create("_pro/main1",[
-           "title"=>"#LOREM SET TITLE";
+           "title"=>"#LOREM SET TITLE SET", 
            "parrafo"=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ",
            "url"=> "#",
            "text" => "Leer mas"

@@ -12,11 +12,10 @@ class Cmp{
         $html = $this->get_string_between($template,"</script>","<style>");
         $css = $this->get_string_between($template,"<style>","</style>");
 
-        preg_match_all('/[.]+.+{/', $css , $resultado); 
+        preg_match_all('/[.]+.+{/', $css , $resultado);
         $resultado = array_unique($resultado[0]);
         $hash = substr(md5(rand(1,30)),0,4);
-        foreach ( $resultado as $key => $value) {
-            var_dump($value);
+        foreach ( $resultado as $key => $value) { 
             $class = "#kai$hash ".$value;
             $css =  str_replace($value , $class , $css) ;
         }

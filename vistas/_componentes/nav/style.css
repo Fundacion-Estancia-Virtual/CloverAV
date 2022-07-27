@@ -1,24 +1,99 @@
-nav a{
+nav  .menua{
     text-decoration: none;
     color: #777;
-    position: ;
-    
+    font-size: 15px;
 
+
+
+}
+nav  .menub{
+    text-decoration: none;
+    color: #777;
+    font-size: 15px;
+
+
+
+}
+nav  .menuc{
+    text-decoration: none;
+    color: #777;
+    font-size: 15px;
+
+
+
+}
+
+span, a{
+  font-family: 'Gulzar', serif;
+}
+.nvsec{
+
+  margin-top: -89px;
+  margin-left: -100px;
+}
+
+nav .menua:hover section{
+  position:absolute;
+  z-index: 10;
+  background: ;
+  top: 78px; left: 0px;
+  display: block;
+  width: 100vw;
+
+}
+nav .menua section{
+  position: absolute;
+  display: none;
+}
+nav .menub:hover section{
+  position:absolute;
+  z-index: 10;
+  background: ;
+  top: 78px; left: 0px;
+  display: block;
+  width: 100vw;
+}
+nav .menub section{
+  position: absolute;
+  display: none;
+}
+nav .menuc:hover section{
+  position:absolute;
+  z-index: 10;
+  background: ;
+  top: 78px; left: 0px;
+  display: block;
+  width: 100vw;
+}
+nav .menuc section{
+  position: absolute;
+  display: none;
 }
 
 #smallNav{
 
   width: 100vw;
  margin-left: 100px;
-
  border-bottom-right-radius: 100px;
  border-bottom-left-radius:  100px;
+ transition: all 1.2s ease-out;
+   background: rgba(165, 225, 194, 0);
+   height: 90px;
 
 }
-
+#smallNav:hover{
+  height: 90px;
+  background: rgba(165, 225, 194, 1);
+/* background: radial-gradient(circle, rgba(193,192,69,0.7259278711484594) 30%, rgba(115,233,192,0.6671043417366946) 90%); */
+}
 #smallNav{
 
 
 background-size: cover;
 
+}
+
+.contenidonav{
+  background: rgb(68,85,45);
+background: radial-gradient(circle, rgba(68,85,45,0.9640231092436975) 30%, rgba(1,69,26,0.8631827731092436) 90%);
 }

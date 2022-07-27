@@ -44,7 +44,9 @@ function render($file,$arg){
           draw($pg->$f($arg));
       }
       else{
-            array_shift($uriP);
+           if ($uriP != null) {
+              array_shift($uriP);
+           }
             draw( $pg->index($arg));
         };
   }else draw($pg->index());

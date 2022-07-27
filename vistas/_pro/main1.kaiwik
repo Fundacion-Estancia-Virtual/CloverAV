@@ -3,6 +3,7 @@
 </script>
 
 <kaiwik>
+<div class="d-none d-md-block">
   <section class="bg-infomain" id="cardA">
     <div class="container py-5 ">
       <div class="row">
@@ -23,6 +24,7 @@
       </div>
     </div>
   </section>
+  </div>
 </kaiwik>
 
 

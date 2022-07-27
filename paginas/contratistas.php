@@ -13,10 +13,7 @@
         $html .= "</br></br></br></br></br></br>";
          $data = $this->model("user")->getByServicio($arg[0]);
 
-         $html .= $this->create("_componentes/title",[
-          "title" => $servicio->nombreserv
-         ]);
-         $html .= $this->create("user/index",$data);
+                  $html .= $this->create("_componentes/profilecons",$data);
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);
      }

@@ -14,7 +14,7 @@
            $html .= $this->create("servicioscons/show",$data);
          }else {
            $data = $this->model("servicioscons")->gets();
-           $html .= $this->create("servicioscons/index", $data);
+           $html .= $this->create("_componentes/profilecategoria", $data);
          }
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);

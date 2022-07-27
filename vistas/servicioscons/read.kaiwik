@@ -23,7 +23,7 @@
                     <th scope="col">nombreserv</th>
                  <th scope="col">foto</th>
                  <th scope="col">descripcion</th>
-                 
+
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -32,9 +32,9 @@
                           <tr>
                             <td><?= $value->id?></td>
                             <td><?= $value->nombreserv?></td>
-                 <td><?= $value->foto?></td>
+                 <td><img src="<?= $value->foto ?>" height="100" class="card-img-top" alt="..."></td>
                  <td><?= $value->descripcion?></td>
-                 
+
                           <td>
                             <a href="/servicioscons/<?= $value->id?>" class="btn btn-secondary btn-sm">Detalles</a>
                             <a href="/panel/servicioscons/delete/<?= $value->id?>" class="btn btn-danger btn-sm">Eliminar</a>

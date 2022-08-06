@@ -1,0 +1,22 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section class="bg-orange">
+    <img class="bb" src="https://picsum.photos/300/400" alt="">
+  </section>
+  <section class="bg-dark py-5">
+    <div class="margen d-md-none">
+      <br><br><br><br><br><br><br>
+      <br><br><br><br> <br>
+    </div>
+  </section>
+</kaiwik>
+
+<style>
+.bb{
+  height:550px;
+  width: 100%;
+}
+</style>

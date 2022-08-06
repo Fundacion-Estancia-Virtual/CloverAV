@@ -1,0 +1,225 @@
+<script>
+let fBox = document.querySelector("#fBox");
+let t = document.querySelector("#t");
+let full = document.querySelector("#full");
+let close = document.querySelector("#close");
+
+let arriba = false;
+
+function oppen() {
+  fBox.classList.add('fBox');
+  t.classList.add('t');
+  close.classList.add('close');
+}
+function rem() {
+  console.log("rem");
+  fBox.classList.remove('fBox');
+  t.classList.remove('t');
+  close.classList.remove('close');
+}
+
+fBox.addEventListener("transitionstart", (e)=>{
+  if (e.target.matches("#fBox")) {
+    full.classList.add('full');
+    arriba = !arriba;
+  }
+});
+
+fBox.addEventListener("transitionend", (e)=>{
+  if (e.target.matches("#fBox") && !arriba) {
+    full.classList.remove('full');
+  }
+});
+
+</script>
+
+<kaiwik>
+  <div   onclick="rem()" id="close" class="" >
+    <i  class="bi bi-x-circle-fill text-white"></i>
+  </div>
+  <div id="full"  class="bg-dark">
+  </div>
+
+  <section id="fBox" class="">
+    <div class="container ">
+      <form class="f px-2 " action="index.html" onclick="oppen()" method="post">
+        <div id="t" class="title text-center pb-3">
+          <h1 class="text-white fw-light">
+            <strong>
+              Encuentra tu inmueble
+            </strong>
+          </h1>
+          <div class="d-flex justify-content-around">
+            <p class="text-white">OFICINAS, NAVES Y<br>LOCALES</p>
+            <p class="text-white">RESIDENCIAL Y <br>OBRA NUEVA</p>
+          </div>
+        </div>
+        <div class="py-4 ">
+
+        <div class="row pt-5 pt-md-1">
+          <div class="col-md-3 form-group p-0">
+            <select class="py-3  h-100 form-select" aria-label=".form-select-lg example">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-6 p-0">
+            <input class="py-3 shadow-sm h-100 form-control" placeholder="Buscar tu localidad" type="text" name="" value="">
+          </div>
+          <div class="col-md-1 p-0 text-center bg-light ">
+            <div class="py-2  shadow-sm">
+              <i class="bi bi-pin-map "></i>
+              <small>
+                <div class="">
+                  MAP
+                </div>
+              </small>
+            </div>
+          </div>
+          <div class="col-md-2 p-0">
+              <button class=" btt fw-bold py-3 h-100 btn btn-warning w-100" name="button">
+                <span>Búsqueda</span>
+              </button>
+          </div>
+        </div>
+
+        <div class="row bg-dark">
+          <div class="col-md-4">
+            <div class="d-flex py-1 my-3 border-bottom  border-warning">
+              <i class="text-primary bi bi-alarm-fill"></i>
+              <select class="text-white personalised border-bottom w-100" aria-label=".form-select-lg example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-flex py-1 my-3 border-bottom  border-warning">
+              <i class="text-primary bi bi-alarm-fill"></i>
+              <select class="text-white personalised border-bottom w-100" aria-label=".form-select-lg example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-flex py-1 my-3 border-bottom  border-warning">
+              <i class="text-primary bi bi-alarm-fill"></i>
+              <select class="text-white personalised border-bottom w-100" aria-label=".form-select-lg example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </form>
+
+
+
+
+  </div>
+
+  </section>
+</kaiwik>
+
+<style>
+#close{
+  font-size: 23px;
+  padding: 10px;
+  display: none;
+  cursor: pointer !important;
+}
+.close{
+  display: block;
+  z-index: 100 !important;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+}
+.f  select, button, input{
+    border: none !important;
+    border-radius: 0px !important;
+}
+option{
+  border: none;
+  color: rgba(0,0,0,.9);
+}
+
+
+.personalised{
+  background: none;
+  border: none;
+}
+#fBox{
+  transition: ease all 1s;
+  position: absolute;
+  top: 335px;
+  left: 0px;
+  width: 100%;
+}
+ .fBox{
+   top: -150px !important;
+   left: 0px;
+   width: 100%;
+   position: fixed !important;
+}
+#full{
+  display: none;
+}
+.full{
+  width: 100%;
+  height: 100vh !important;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: block !important;
+}
+.t{
+  opacity: 0;
+}
+.title{
+
+    transition: ease all 1s;
+}
+.btt{
+  position: relative;
+  transition: ease all 1s;
+}
+.btt  span{
+  transition: ease all 1s;
+}
+.btt:hover span{
+  position: relative;
+  z-index: 10;
+  color: orange;
+}
+.btt::after{
+  transition: ease all .5s;
+  content: "";
+  position:absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  background: black;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.btt:hover::after{
+  width: 90%;
+}
+
+</style>

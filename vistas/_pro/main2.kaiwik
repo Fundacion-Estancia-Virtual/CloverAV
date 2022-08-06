@@ -1,0 +1,45 @@
+<script>
+
+</script>
+
+<kaiwik>
+  <section class="bg-infomain"  >
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6 pe-md-0">
+          <img class="w-50 float-end" src="https://picsum.photos/536/354?random=3" alt="">
+          <img class="w-100" src="https://picsum.photos/536/354?random=2" alt="">
+        </div>
+        <div class="col-md-6 ps-md-0">
+          <div class="h-100 bg-white d-flex p-5 align-items-center">
+              <div class="py-md-3">
+                <h3 class="fw-bold "><?= $title ?></h3>
+                <p class=""><?= $parrafo ?></p>
+                <a href="<?= $url ?>"> <i class="bi bi-link-45deg"></i> <?= $text ?>  </a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</kaiwik>
+
+<style>
+.w-50{
+  margin-bottom:-18%;
+  z-index: 5;
+  position: relative;
+}
+.w-100{
+  z-index: 1;
+  position: relative;
+}
+
+
+@media  screen and (min-width: 768px) {
+  .ps-md-0{
+    border-left:solid 6px var(--main-bg-color);
+  }
+}
+
+</style>

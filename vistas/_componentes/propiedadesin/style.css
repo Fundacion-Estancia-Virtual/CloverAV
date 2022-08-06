@@ -1,0 +1,30 @@
+.carousel-caption{
+  height: 30px;
+ background-color: rgba(0, 0, 0, 0.8);
+ width: 100%;
+  margin-left: -90px;
+
+
+
+}
+
+.opcionimg{
+  margin-top: -12px;
+}
+
+.btn{
+  height: 32px;
+}
+
+.precio{
+  font-size: 33px;
+}
+
+.caracteris{
+  font-size: 22px;
+  margin-top: 50px;
+}
+
+.biografia{
+  line-height: 3px;
+}

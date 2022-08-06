@@ -2,7 +2,7 @@
  class Inicio  extends Context {
      function __construct(){
          parent::__construct();
-         $this->title = "Inicio";
+         $this->title = "Constructora en Guadalajara";
      }
      public function index(){
          $html  = ($this->sessionExist())

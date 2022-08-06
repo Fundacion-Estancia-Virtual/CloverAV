@@ -14,6 +14,13 @@
            "searchVenta" => $this->create("_componentes/search")
          ]);
 
+         $html  .= $this->create("_componentes/propiedadesin",[
+            "sincuent" => $this->create("log/in")
+         ]);
+         $html  .= $this->create("_componentes/descuentosp");
+         $html  .= $this->create("_componentes/inmobiliariasred");
+         $html  .= $this->create("_componentes/promoimagenes");
+
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);
      }

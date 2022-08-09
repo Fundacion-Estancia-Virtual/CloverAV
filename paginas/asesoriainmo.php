@@ -7,9 +7,9 @@
 
      public function index(){
         $html = "";
-         // $html = ($this->sessionExist())
-         //    ?$this->create("_componentes/navLog")
-         //    :$this->create("_componentes/nav");
+         $html = ($this->sessionExist())
+            ?$this->create("_componentes/navLog")
+            :$this->create("_componentes/navaseinmo");
          //
          // $html  .= $this->create("_componentes/asesoriainmo",[
          //   "ventainmo" => $this->create("_componentes/serviciosclover/ventasinmo"),
@@ -22,8 +22,8 @@
          //    "sincuent" => $this->create("log/in")
          // ]);
          $html  .= $this->create("_componentes/descuentosp");
-         // $html  .= $this->create("_componentes/inmobiliariasred");
-         // $html  .= $this->create("_componentes/promoimagenes");
+         $html  .= $this->create("_componentes/inmobiliariasred");
+         $html  .= $this->create("_componentes/promoimagenes");
 
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);

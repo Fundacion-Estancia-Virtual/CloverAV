@@ -1,0 +1,12 @@
+.navv{
+  margin-top: -55px;
+}
+
+.nav-item{
+  height: 70px;
+}
+
+.nav{
+  display: flex;
+  height: 100px;
+}

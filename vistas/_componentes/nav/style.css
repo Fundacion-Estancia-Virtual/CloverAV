@@ -1,3 +1,11 @@
+.nevicel{
+  display: flex;
+  height: 3px;
+}
+.contnavi{
+  margin-top: -50px;
+  margin-left: 100px;
+}
 nav  .menua{
     text-decoration: none;
     color: #777;

@@ -45,13 +45,17 @@ nav .menua:hover section{
   z-index: 10;
   background: ;
   top: 78px; left: 0px;
-  display: block;
+  /* display: block; */
   width: 100vw;
+  opacity: 100%;
 
 }
-nav .menua section{
+nav .menua section{ 
   position: absolute;
-  display: none;
+  /* display: none; */
+  z-index: -10;
+  top: 78px; left: 0px;
+  opacity: 0%;
   transition: all 1.2s ease-out;
 }
 nav .menub:hover section{

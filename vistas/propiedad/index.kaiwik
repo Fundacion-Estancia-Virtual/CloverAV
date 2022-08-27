@@ -20,12 +20,13 @@
                   <div class="card p-3 m-2">
                       <p class="text-muted"><?= $value->id?></p>
                         <p><?= $value->direccion ?></p>
-                 <p><?= $value->imagenes ?></p>
+                        <img class="imagprofecom" src="<?= $value->imagenes ?>" alt="">
+
                  <p><?= $value->id_usuario ?></p>
                  <p><?= $value->categoria ?></p>
                  <p><?= $value->descripcion ?></p>
-                 
-                      <a href="/propiedad/<?= $value->id?>">Detalles</a>
+
+                      <a href="/annuncio">Detalles</a>
                     </div>
                   </div>
               <?php endforeach; ?>
@@ -38,6 +39,12 @@
 </kaiwik>
 
 <style>
+
+
+    .imagprofecom{
+        border-radius: 50px;
+          width: 100%;
+    }
     .colo{
         color: blue;
     }

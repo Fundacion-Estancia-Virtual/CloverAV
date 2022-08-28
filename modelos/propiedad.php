@@ -21,6 +21,14 @@ class Model_Propiedad{
         return $data;
     }
 
+    public function getsFilter($direccion){
+        $qry = "SELECT * FROM `propiedad` WHERE
+                propiedad.direccion LIKE ?
+                ";
+        $data  = $this->db->consult($qry, ["%$direccion%"]);
+        return $data;
+    }
+
     public function create($direccion, $imagenes, $id_usuario, $categoria, $descripcion){
         $qry = "INSERT INTO `propiedad` (`direccion`,`imagenes`,`id_usuario`,`categoria`,`descripcion`)
                 VALUES (?,?,?,?,?)";

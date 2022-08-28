@@ -6,7 +6,6 @@
      }
 
      public function index(){
-        $html = "";
          $html = ($this->sessionExist())
             ?$this->create("_componentes/navLog")
             :$this->create("_componentes/navaseinmo");
@@ -27,6 +26,22 @@
 
          $html  .= $this->create("_componentes/footer");
          return $this->ret($html);
+     }
+
+     public function busqueda(){
+       $arrInmueble = $this->model("propiedad")->getsFilter($_POST["localidad"]);
+       $htmlInmueble = "";
+       foreach ($arrInmueble as $key => $value) {
+         $htmlInmueble .= $this->create("_componentes/propiedadesin",[
+           "ubicacion" => $value->direccion
+         ]);
+       }
+       $html .= $this->create("searchAinmo/formSearchBusqueda",[
+         "resultado" => $htmlInmueble
+       ]);
+
+       $html  .= $this->create("_componentes/footer");
+       return $this->ret($html);
      }
 
 }

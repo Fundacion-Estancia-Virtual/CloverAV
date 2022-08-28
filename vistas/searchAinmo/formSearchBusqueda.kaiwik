@@ -1,49 +1,24 @@
 <script>
-let fBox = document.querySelector("#fBox");
-let t = document.querySelector("#t");
-let full = document.querySelector("#full");
-let close = document.querySelector("#close");
 
-let arriba = false;
-
-function oppen() {
-  fBox.classList.add('fBox');
-  t.classList.add('t');
-  close.classList.add('close');
+function animateSVG(e) {
+  let path = e.getElementsByTagName('path')[0];
+  path.setAttribute("d","M29.2,-27.2C38.2,-27.3,46,-18.4,54,-4.8C62,8.7,70.1,26.9,61.4,29.2C52.6,31.4,27,17.6,9.4,22.6C-8.2,27.6,-17.8,51.4,-23.9,54.1C-29.9,56.9,-32.5,38.6,-41.6,23.6C-50.8,8.7,-66.5,-2.9,-64.7,-11.1C-62.9,-19.3,-43.6,-24.1,-29.9,-23.1C-16.1,-22.2,-8.1,-15.5,1,-16.7C10.1,-17.9,20.2,-27,29.2,-27.2Z")
 }
-function rem() {
-  console.log("rem");
-  fBox.classList.remove('fBox');
-  t.classList.remove('t');
-  close.classList.remove('close');
-}
-
-fBox.addEventListener("transitionstart", (e)=>{
-  if (e.target.matches("#fBox")) {
-    full.classList.add('full');
-    arriba = !arriba;
-  }
-});
-
-fBox.addEventListener("transitionend", (e)=>{
-  if (e.target.matches("#fBox") && !arriba) {
-    full.classList.remove('full');
-  }
-});
-
 </script>
 
 <kaiwik>
-  <div   onclick="rem()" id="close" class="" >
-    <i  class="bi bi-x-circle-fill text-white"></i>
-  </div>
+  <a href="/asesoriainmo">
+    <div  id="close" class="close" >
+      <i  class="bi bi-x-circle-fill text-white"></i>
+    </div>
+  </a>
   <div id="full"  class="bg-dark">
   </div>
 
-  <section id="fBox" class="">
+  <section id="fBox" class="fBox bg-dark">
     <div class="container ">
       <form class="f px-2 " action="/asesoriainmo/busqueda" onclick="oppen()" method="post">
-        <div id="t" class="title text-center pb-3">
+        <div id="t" class="t title text-center pb-3">
           <h1 class="text-white fw-light">
             <strong>
               Encuentra tu inmueble
@@ -123,21 +98,36 @@ fBox.addEventListener("transitionend", (e)=>{
 
       </div>
       </form>
-
-
-
-
   </div>
+  </section>
+  <section class="bg-dark">
+    <div class="container">
+      <div class=" resultado text-white ">
+        <?= $resultado ?>
+      </div>
+    </div>
+  </section>
 
+  <section class="animacion">
+    <svg onclick="animateSVG(this)" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#FF0066" d="M52.4,-57.2C63.9,-52.7,66.5,-32.5,56.4,-20.2C46.3,-8,23.5,-3.8,17.5,13.3C11.4,30.5,22.2,60.6,20,66.5C17.7,72.3,2.4,54,-7.3,41.3C-17,28.6,-21,21.5,-31.9,13.3C-42.8,5.1,-60.5,-4.4,-62.1,-13.7C-63.7,-22.9,-49.1,-32.1,-36.1,-36.2C-23.1,-40.4,-11.5,-39.6,4.4,-44.9C20.4,-50.2,40.8,-61.6,52.4,-57.2Z" transform="translate(100 100)" />
+    </svg>
   </section>
 </kaiwik>
 
 <style>
+svg path{
+  transition: all 5s ease;
+}
+.resultado{
+  padding-top: 200px;
+}
 #close{
   font-size: 23px;
   padding: 10px;
   display: none;
   cursor: pointer !important;
+  z-index: 100;
 }
 .close{
   display: block;
@@ -172,6 +162,7 @@ option{
    left: 0px;
    width: 100%;
    position: fixed !important;
+   z-index: 50;
 }
 #full{
   display: none;
